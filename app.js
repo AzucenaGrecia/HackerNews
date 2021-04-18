@@ -9,13 +9,16 @@ async function getData(url) {
   try {
     const response = await fetch(url);
     const json = await response.json();
-    console.log(json);
+    console.log(json.hits.length);
+    // tendria que hacerse el llenado de datos
+    
+
   } catch (err) {
     console.log(error);
   }
 }
 
-//getData(url);
+getData(url);
 
 
 // Pide la data cada X tiempo 
@@ -37,7 +40,7 @@ async function getData(url) {
 //setInterval(myFunc, 5000, "http://hn.algolia.com/api/v1/search_by_date?query=nodejs");
 
 
-// conectarse con Mongo DB
+//conectarse con Mongo DB
 mongoose.connect(
   process.env.DB_CONNECTION,
   { useNewUrlParser: true, useUnifiedTopology: true },
