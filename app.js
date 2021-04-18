@@ -1,27 +1,50 @@
 const fetch = require("node-fetch");
 const mongoose = require("mongoose");
 require("dotenv/config");
+const { MongoClient } = require("mongodb");
+const client = new MongoClient(process.env.DB_CONNECTION, {
+  useUnifiedTopology: true,
+});
 
 // pide data una sola vez
 const url = "http://hn.algolia.com/api/v1/search_by_date?query=nodejs";
+const dbName = "ReignProyect";
 
 async function getData(url) {
   try {
     const response = await fetch(url);
     const json = await response.json();
-    console.log(json.hits.length);
+    const news = json.hits;
+    const arrayUnqNews = [
+      ...new Map(
+        news.map((item) => [
+          item["story_id"],
+          {
+            story_id: item.story_id,
+            story_title: item.story_title,
+            story_url: item.story_url,
+            author: item.author,
+            created_at: item.created_at,
+          },
+        ])
+      ).values(),
+    ];
     // tendria que hacerse el llenado de datos
-
-
+    await client.connect();
+    console.log("Connected correctly to server");
+    const db = client.db(dbName);
+    const col = db.collection("news");
+    const p = await col.insertMany(arrayUnqNews);
   } catch (err) {
-    console.log(error);
+    console.log(err.stack);
+  } finally {
+    await client.close();
   }
 }
 
 getData(url);
 
-
-// Pide la data cada X tiempo 
+// Pide la data cada X tiempo
 // function myFunc(url) {
 
 //   async function getData(url) {
@@ -38,7 +61,6 @@ getData(url);
 // }
 
 //setInterval(myFunc, 5000, "http://hn.algolia.com/api/v1/search_by_date?query=nodejs");
-
 
 //conectarse con Mongo DB
 // mongoose.connect(
