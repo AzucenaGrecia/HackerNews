@@ -2,10 +2,10 @@ import React from "react";
 import { css, Global } from "@emotion/react";
 import {
   BrowserRouter as Router,
-  Redirect,
   Route,
   Switch,
 } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -22,10 +22,9 @@ function App() {
       />
       <Router>
         <Switch>
-          <Route />
+          <Route exact path="/" component={Home}/>
         </Switch>
       </Router>
-      <h1>HOLA!</h1>
     </div>
   );
 }
