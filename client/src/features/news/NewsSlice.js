@@ -4,6 +4,7 @@ import { BASE_URI } from "../../app/config";
 export const fecthNews = createAsyncThunk("news/fetchNews", async () => {
   const response = await fetch(`${BASE_URI}/news`, {
     method: "GET",
+    headers:{},
   });
   const data = await response.json();
 
