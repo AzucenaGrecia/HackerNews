@@ -54,8 +54,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Import Routes
-const newsRoute = require("./routes/posts");
-app.use('/news', newsRoute);
+const newsRoute = require("./routes/news");
+app.use("/news", newsRoute);
 
 // connection with Mongo DB
 mongoose.connect(
