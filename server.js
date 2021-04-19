@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require('path');
 const fetch = require("node-fetch");
 const mongoose = require("mongoose");
 require("dotenv/config");
@@ -9,6 +10,7 @@ const { MongoClient } = require("mongodb");
 const client = new MongoClient(process.env.DB_CONNECTION, {
   useUnifiedTopology: true,
 });
+
 
 // request to HACKER NEWS API each hour
 function myFunc(url) {
@@ -85,8 +87,6 @@ app.get('*', (req, res) => {
   });
 });
 
-// Configure our server to listen on the port defiend by our port variable
-app.listen(port, () => console.log(`BACK_END_SERVICE_PORT: ${port}`));
 
 // Import Routes
 const newsRoute = require("./routes/news");
@@ -100,3 +100,7 @@ mongoose.connect(
     console.log("conected to DB!");
   }
 );
+
+
+// Configure our server to listen on the port defiend by our port variable
+app.listen(port, () => console.log(`BACK_END_SERVICE_PORT: ${port}`));
