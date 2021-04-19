@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
 const mongoose = require("mongoose");
 require("dotenv/config");
@@ -47,6 +49,10 @@ setInterval(
   1000 * 60 * 60 * 1,
   "http://hn.algolia.com/api/v1/search_by_date?query=nodejs"
 );
+// Midlewares
+app.use(cors());
+app.use(bodyParser.json());
+
 
 // connection with Mongo DB
 mongoose.connect(
@@ -55,6 +61,6 @@ mongoose.connect(
   () => {
     console.log("conected to DB!");
   }
-)
-// listen to the server 
-app.listen(3000)
+);
+// listen to the server
+app.listen(3000);
