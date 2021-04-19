@@ -71,6 +71,10 @@ app.use(bodyParser.urlencoded({
 // Configure the CORs middleware
 app.use(cors());
 
+// Import Routes
+const newsRoute = require("./routes/news");
+app.use("/news", newsRoute);
+
 // This middleware informs the express application to serve our compiled React files
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static(path.join(__dirname, 'client/build')));
@@ -79,18 +83,6 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
       res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 };
-
-// Catch any bad requests
-app.get('*', (req, res) => {
-  res.status(200).json({
-      msg: 'Catch All'
-  });
-});
-
-
-// Import Routes
-const newsRoute = require("./routes/news");
-app.use("/news", newsRoute);
 
 // connection with Mongo DB
 mongoose.connect(
