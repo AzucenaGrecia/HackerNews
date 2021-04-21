@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { differenceInDays, format } from "date-fns";
+import { BsFillTrashFill } from "react-icons/bs";
 
 export default function CardNew({ children, author, date, onClick }) {
   let newDate = new Date(date);
@@ -23,7 +24,7 @@ export default function CardNew({ children, author, date, onClick }) {
       </div>
       <div class="date_and_icon">
         {formatDate}
-        <p>Trash</p>
+        <BsFillTrashFill />
       </div>
     </StyledCard>
   );
@@ -37,7 +38,11 @@ const StyledCard = styled.div`
   justify-content: space-between;
   :hover {
     background-color: #ccc;
+    svg {
+      visibility: visible;
+    }
   }
+
   span {
     color: #999;
     margin: 4px;
@@ -45,8 +50,8 @@ const StyledCard = styled.div`
   .date_and_icon {
     display: flex;
     gap: 32px;
-    p {
-      visibility: hidden;
-    }
+  }
+  svg {
+    visibility: hidden;
   }
 `;
