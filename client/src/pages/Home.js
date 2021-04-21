@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import CardNew from "../components/containers/CardNew";
 import Header from "../components/containers/Header";
-import { Content } from "../components/text/content";
 import { fecthNews } from "../features/news/NewsSlice";
 
 export default function Home() {
@@ -12,13 +12,20 @@ export default function Home() {
     dispatch(fecthNews());
   }, []);
 
+  function OpenUrl(link) {
+    window.open(link);
+  }
+
   return (
     <>
-      <Header/>
+      <Header />
       {news.map((item) => {
-        return <p>{item.story_title}</p>;
+        return (
+          <CardNew author={item.author} onClick={() => OpenUrl(item.story_url)}>
+            {item.story_title}
+          </CardNew>
+        );
       })}
     </>
   );
 }
-
