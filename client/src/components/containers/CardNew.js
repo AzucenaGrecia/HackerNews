@@ -21,7 +21,10 @@ export default function CardNew({ children, author, date, onClick }) {
         {children}
         <span>- {author} -</span>
       </div>
-      <div>{formatDate}</div>
+      <div class="date_and_icon">
+        {formatDate}
+        <p>Trash</p>
+      </div>
     </StyledCard>
   );
 }
@@ -32,8 +35,18 @@ const StyledCard = styled.div`
   margin: 0px 32px;
   display: flex;
   justify-content: space-between;
+  :hover {
+    background-color: #ccc;
+  }
   span {
     color: #999;
     margin: 4px;
+  }
+  .date_and_icon {
+    display: flex;
+    gap: 32px;
+    p {
+      visibility: hidden;
+    }
   }
 `;
