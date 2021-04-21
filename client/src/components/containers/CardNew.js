@@ -17,12 +17,12 @@ export default function CardNew({ children, author, date, onClick }) {
   }
 
   return (
-    <StyledCard onClick={onClick}>
-      <div>
+    <StyledCard>
+      <div onClick={onClick}>
         {children}
         <span>- {author} -</span>
       </div>
-      <div class="date_and_icon">
+      <div className="date_and_icon">
         {formatDate}
         <BsFillTrashFill />
       </div>
