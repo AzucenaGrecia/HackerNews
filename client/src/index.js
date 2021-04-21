@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { css, Global } from "@emotion/react";
 const GlobalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap");
   * {
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ const GlobalStyles = css`
 
 ReactDOM.render(
   <React.StrictMode>
-    <Global styles={GlobalStyles}/>
+    <Global styles={GlobalStyles} />
     <Provider store={store}>
       <App />
     </Provider>

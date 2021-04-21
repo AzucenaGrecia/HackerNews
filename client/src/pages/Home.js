@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Header from "../components/containers/Header";
 import { fecthNews } from "../features/news/NewsSlice";
 
 export default function Home() {
@@ -12,10 +13,11 @@ export default function Home() {
 
   return (
     <>
-      <h1>Soy home</h1>
+      <Header/>
       {news.map((item) => {
         return <p>{item.story_title}</p>;
       })}
     </>
   );
 }
+
