@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/containers/Header";
+import { Content } from "../components/text/content";
 import { fecthNews } from "../features/news/NewsSlice";
 
 export default function Home() {
