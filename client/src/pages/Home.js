@@ -21,7 +21,12 @@ export default function Home() {
       <Header />
       {news.map((item) => {
         return (
-          <CardNew author={item.author} onClick={() => OpenUrl(item.story_url)}>
+          <CardNew
+            key={item._id}
+            author={item.author}
+            date={item.created_at}
+            onClick={() => OpenUrl(item.story_url)}
+          >
             {item.story_title}
           </CardNew>
         );
