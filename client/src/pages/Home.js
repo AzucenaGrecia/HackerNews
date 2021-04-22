@@ -23,9 +23,12 @@ export default function Home() {
     ).values(),
   ].sort((a, b) => b.created_at - a.created_at);
 
+  localStorage.setItem("arrayUnqNews", JSON.stringify(arrayUnqNews));
+  const arrayUnqNewsLocalStorage = localStorage.getItem("arrayUnqNews");
+
   useEffect(() => {
     dispatch(fecthNews());
-  }, []);
+  },[]);
 
   function OpenUrl(link) {
     window.open(link);
@@ -34,10 +37,11 @@ export default function Home() {
   return (
     <>
       <Header />
-      {arrayUnqNews.map((item) => {
+      {JSON.parse(arrayUnqNewsLocalStorage).map((item) => {
         return (
           <CardNew
             key={item.story_id}
+            story_id={item.story_id}
             author={item.author}
             date={item.created_at}
             onClick={() => OpenUrl(item.story_url)}
