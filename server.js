@@ -50,7 +50,7 @@ function myFunc(url) {
 
 setInterval(
   myFunc,
-  1000 * 60 * 60 ,
+  10000 * 60 * 15,
   "http://hn.algolia.com/api/v1/search_by_date?query=nodejs"
 );
 

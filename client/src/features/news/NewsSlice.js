@@ -19,6 +19,7 @@ const newsSlice = createSlice({
   initialState: {
     status: "iddle",
     error: null,
+    news_server: [],
     news: JSON.parse(localStorage.getItem("news")) || [],
     delete_news: JSON.parse(localStorage.getItem("delete_news")) || [],
   },
@@ -43,18 +44,24 @@ const newsSlice = createSlice({
     },
     [fecthNews.fulfilled]: (state, action) => {
       state.status = "succeeded";
+      state.news_server = action.payload.news;
+
       const newsFilter = action.payload.news.filter(
-        (item) => item.story_url !== null
+        (item) => item.story_id !== null
       );
       const objUniquesNews = newsFilter.reduce((acc, curr) => {
         if (!acc[curr.story_id]) acc[curr.story_id] = curr;
         return acc;
       }, {});
+
       localStorage.setItem(
         "news",
         JSON.stringify([...Object.values(objUniquesNews)])
       );
-      state.news = [...Object.values(objUniquesNews)];
+
+      state.news = [...Object.values(objUniquesNews)].sort(function (a, b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+      });
     },
     [fecthNews.failed]: (state, action) => {
       state.status = "failed";
