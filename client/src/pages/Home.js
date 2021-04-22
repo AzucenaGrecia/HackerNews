@@ -8,22 +8,14 @@ import { fecthNews } from "../features/news/NewsSlice";
 export default function Home() {
   const dispatch = useDispatch();
   const news = useSelector((state) => state.news.news);
-  const delete_news = useSelector((state) => state.news.delete_news);
-  // const newsSort = news.sort(function (a, b) {
-  //   return new Date(a.created_at) - new Date(b.created_at);
-  // });
 
   useEffect(() => {
     dispatch(fecthNews());
-  }, []);
+  },[]);
 
   function OpenUrl(link) {
     window.open(link);
   }
-
- 
-
-  // console.log(newsSort);
 
   return (
     <>

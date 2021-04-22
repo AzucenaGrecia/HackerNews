@@ -21,7 +21,7 @@ const newsSlice = createSlice({
     error: null,
     news_server: [],
     news: JSON.parse(localStorage.getItem("news")) || [],
-    delete_news: JSON.parse(localStorage.getItem("delete_news")) || [],
+    delete_news_ids: JSON.parse(localStorage.getItem("delete_news_ids")) || [],
   },
   reducers: {
     removeNews: function (state, action) {
@@ -32,10 +32,13 @@ const newsSlice = createSlice({
         (item) => item.story_id == action.payload.story_id
       );
       state.news = newsFilter;
-      state.delete_news = [deletedNews, ...state.delete_news];
+      state.delete_news_ids = [deletedNews.story_id, ...state.delete_news_ids];
 
       localStorage.setItem("news", JSON.stringify(newsFilter));
-      localStorage.setItem("delete_news", JSON.stringify(state.delete_news));
+      localStorage.setItem(
+        "delete_news_ids",
+        JSON.stringify(state.delete_news_ids)
+      );
     },
   },
   extraReducers: {
@@ -59,9 +62,11 @@ const newsSlice = createSlice({
         JSON.stringify([...Object.values(objUniquesNews)])
       );
 
-      state.news = [...Object.values(objUniquesNews)].sort(function (a, b) {
-        return new Date(b.created_at) - new Date(a.created_at);
-      });
+      state.news = [...Object.values(objUniquesNews)]
+        .sort(function (a, b) {
+          return new Date(b.created_at) - new Date(a.created_at);
+        })
+        .filter((item) => !state.delete_news_ids.includes(item.story_id));
     },
     [fecthNews.failed]: (state, action) => {
       state.status = "failed";
