@@ -57,16 +57,13 @@ const newsSlice = createSlice({
         return acc;
       }, {});
 
-      localStorage.setItem(
-        "news",
-        JSON.stringify([...Object.values(objUniquesNews)])
-      );
-
       state.news = [...Object.values(objUniquesNews)]
         .sort(function (a, b) {
           return new Date(b.created_at) - new Date(a.created_at);
         })
         .filter((item) => !state.delete_news_ids.includes(item.story_id));
+
+      localStorage.setItem("news", JSON.stringify(state.news));
     },
     [fecthNews.failed]: (state, action) => {
       state.status = "failed";

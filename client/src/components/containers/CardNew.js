@@ -11,8 +11,6 @@ export default function CardNew({ story_id, children, author, date, onClick }) {
   let formatDate = null;
   const dispatch = useDispatch();
 
-  console.log("today",today)
-  console.log("yesterday",yesterday)
   if (today) {
     formatDate = format(newDate, "HH:mm aaaa");
   } else if (yesterday) {
