@@ -88,7 +88,7 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
 
 // connection with Mongo DB
 mongoose.connect(
-  process.env.DB_CONNECTION2,
+  process.env.DB_CONNECTION,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("conected to DB!");
