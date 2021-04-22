@@ -20,30 +20,22 @@ const newsSlice = createSlice({
     status: "iddle",
     error: null,
     news: JSON.parse(localStorage.getItem("news")) || [],
-    delete_news:  []
+    delete_news: JSON.parse(localStorage.getItem("delete_news")) || [],
   },
   reducers: {
     removeNews: function (state, action) {
       const newsFilter = state.news.filter(
         (item) => item.story_id !== action.payload.story_id
-      );  
-      const deletedNews = state.news.filter(item => item.story_id == action.payload.story_id);
-      localStorage.setItem("news", JSON.stringify(newsFilter));
+      );
+      const deletedNews = state.news.find(
+        (item) => item.story_id == action.payload.story_id
+      );
       state.news = newsFilter;
-      console.log("deletenews",deletedNews[0]);
-      // console.log(state.news);
+      state.delete_news = [deletedNews, ...state.delete_news];
+
+      localStorage.setItem("news", JSON.stringify(newsFilter));
+      localStorage.setItem("delete_news", JSON.stringify(state.delete_news));
     },
-    // addDeleteNew(state, action) {
-    //   console.log("action",action.payload);
-    //   console.log(state.news);
-    //   const deletedNews = state.news.find(item => {
-    //     console.log("item",item);
-    //     return item.story_id === action.payload.story_id
-    //   });
-    //   console.log(deletedNews);
-    //   state.delete_news = [deletedNews, ...state.delete_news];
-    //   localStorage.setItem('deletedNews', JSON.stringify(state.delete_news));
-    // }
   },
   extraReducers: {
     [fecthNews.pending]: (state, action) => {
