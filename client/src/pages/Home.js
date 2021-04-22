@@ -7,29 +7,14 @@ import { fecthNews } from "../features/news/NewsSlice";
 export default function Home() {
   const dispatch = useDispatch();
   const news = useSelector((state) => state.news.news);
-  const newsfilter = news.filter((item) => item.story_url != null);
-  const arrayUnqNews = [
-    ...new Map(
-      newsfilter.map((item) => [
-        item["story_id"],
-        {
-          story_id: item.story_id,
-          story_title: item.story_title,
-          story_url: item.story_url,
-          author: item.author,
-          created_at: new Date(item.created_at),
-        },
-      ])
-    ).values(),
-  ].sort((a, b) => b.created_at - a.created_at);
-
-  localStorage.setItem("arrayUnqNews", JSON.stringify(arrayUnqNews));
-  const arrayUnqNewsLocalStorage = localStorage.getItem("arrayUnqNews");
+  console.log(news);
 
   useEffect(() => {
     dispatch(fecthNews());
-  },[]);
+  }, []);
 
+  // implemntar un setInterval que cada 1 hora, pues haga un dispatch(fecthNews())
+  
   function OpenUrl(link) {
     window.open(link);
   }
@@ -37,7 +22,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      {JSON.parse(arrayUnqNewsLocalStorage).map((item) => {
+      {news.map((item) => {
         return (
           <CardNew
             key={item.story_id}

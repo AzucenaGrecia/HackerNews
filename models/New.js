@@ -1,30 +1,37 @@
 const mongoose = require("mongoose");
 
 const newSchema = mongoose.Schema({
-  story_id:{
+  story_id: {
     type: Number,
-    required: true
+    required: true,
   },
   story_title: {
-    type: String, 
+    type: String,
     required: true,
   },
-  story_url:{
-    type: String, 
+  story_url: {
+    type: String,
     required: true,
   },
-  author:{
-    type: String, 
+  author: {
+    type: String,
     required: true,
-  }, 
+  },
   created_at: {
-    type: String, 
+    type: String,
     required: true,
-  }
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  url: {
+    type: String,
+    required: true,
+  },
+});
 
-})
-
-module.exports = mongoose.model("News", newSchema)
+module.exports = mongoose.model("News", newSchema);
 // {
 //   created_at: '2021-04-18T04:33:16.000Z',
 //   title: null,

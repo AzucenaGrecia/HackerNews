@@ -29,12 +29,14 @@ function myFunc(url) {
               story_url: item.story_url,
               author: item.author,
               created_at: item.created_at,
+              title: item.title,
+              url: item.url
             },
           ])
         ).values(),
       ];
       await client.connect();
-      const db = client.db("ReignProyect");
+      const db = client.db("test");
       const col = db.collection("news");
       const p = await col.insertMany(arrayUnqNews);
       console.log("Data was stored into Mongo DB");
@@ -86,7 +88,7 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
 
 // connection with Mongo DB
 mongoose.connect(
-  process.env.DB_CONNECTION,
+  process.env.DB_CONNECTION2,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("conected to DB!");

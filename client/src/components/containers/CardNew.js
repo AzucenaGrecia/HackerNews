@@ -1,11 +1,15 @@
 import styled from "@emotion/styled";
 import { differenceInDays, format } from "date-fns";
 import { BsFillTrashFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { removeNews } from "../../features/news/NewsSlice";
 
 export default function CardNew({ story_id, children, author, date, onClick }) {
   let newDate = new Date(date);
   let result = differenceInDays(Date.now(), newDate);
   let formatDate = null;
+  const dispatch = useDispatch();
+  const news = useSelector((state) => state.news.news);
 
   if (result <= 1) {
     formatDate = format(newDate, "HH:mm aaaa");
@@ -16,13 +20,8 @@ export default function CardNew({ story_id, children, author, date, onClick }) {
   }
 
   function handleDelete(story_id) {
-    console.log("Borra!",story_id );
-    // const arrayUnqNewsLocalStorage = localStorage.getItem("arrayUnqNews");
-    // const newarray = JSON.parse(arrayUnqNewsLocalStorage).filter(item => item.story_id != story_id)
-    // localStorage.clear("arrayUnqNews");
-    // localStorage.setItem("arrayUnqNews",newarray);
-
-    // console.log(JSON.parse(arrayUnqNewsLocalStorage).length, newarray.length)
+    dispatch(removeNews({ story_id }));
+    // dispatch(addDeleteNew({ story_id }));
   }
 
   return (
