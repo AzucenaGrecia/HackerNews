@@ -11,7 +11,7 @@
 <li>1. Install nodejs version v.12.20 (click [here](https://nodejs.org/en/download/))</li>
 </ul>
 
-<h3>Steps for Docker<h4>
+<h1>Steps for Docker<h4>
 <h2>Step 1:</h2>
 <p> 1. Clone the repository in your local machine<p></br>
 <p> 2. Open the project in VS Code or your favorite ✨ code editor</p></br>
