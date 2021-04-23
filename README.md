@@ -13,13 +13,17 @@
 </ul>
 
 <h2>Steps for Docker</h2>
-<h3>Step 1:</h3>
 <p> 1. Clone the repository in your local machine<p></br>
 <p> 2. Open the project in VS Code or your favorite ✨ code editor</p></br>
+<p> 3. Run the command:</p> </br>
+<p></p><code>docker-compose up -d</code></br>
+
 <p> 3. Run the command:</p> </br>
 <p></p><code>docker-compose -f docker-compose.yml up</code></br>
 
 <p> 4. Open a browser and type the next urls 🐱‍💻:</p></br>
 <p></p><code>http://localhost:3000/</code></br>
 <p></p><code>http://localhost:5000/news</code></br>
+
+<p> 5. 👍 the server and client are running! </p>
 
