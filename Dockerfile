@@ -11,7 +11,7 @@ RUN npm install
 # COPY .env .
 # COPY .gitignore .
 # COPY server.js .
-
+EXPOSE 5000
 COPY . . 
 
 CMD ["npm", "start"]

@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  backend:
+    env_file:
+        ".env"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: "greciadelgado2596/spa-reign-backend"
+    ports:
+      - "5000:5000"
+  frontend:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "greciadelgado2596/spa-reign-frontend"
+    ports:
+      - "3000:3000"
+    links:
+      - "backend:be"
