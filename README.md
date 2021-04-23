@@ -13,6 +13,6 @@
 
 <h3>Steps for Docker<h4>
 <h2>Step 1:</h2>
-<p>Clone the repository in your local machine<p> </br>
-<p>Open the project in VS Code or ypur favorite  text editor</p>
-
+<p> 1. Clone the repository in your local machine<p></br>
+<p> 2. Open the project in VS Code or your favorite ✨ code editor</p></br>
+<p> 3. </p>
