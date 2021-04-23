@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const path = require('path');
+const path = require("path");
 const fetch = require("node-fetch");
 const mongoose = require("mongoose");
 require("dotenv/config");
@@ -10,7 +10,6 @@ const { MongoClient } = require("mongodb");
 const client = new MongoClient(process.env.DB_CONNECTION, {
   useUnifiedTopology: true,
 });
-
 
 // request to HACKER NEWS API each hour
 function myFunc(url) {
@@ -30,7 +29,7 @@ function myFunc(url) {
               author: item.author,
               created_at: item.created_at,
               title: item.title,
-              url: item.url
+              url: item.url,
             },
           ])
         ).values(),
@@ -50,7 +49,7 @@ function myFunc(url) {
 
 setInterval(
   myFunc,
-  10000 * 60 * 15,
+  1000 * 60 * 15,
   "http://hn.algolia.com/api/v1/search_by_date?query=nodejs"
 );
 
@@ -66,9 +65,11 @@ app.use((req, res, next) => {
 
 // Configure the bodyParser middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 // Configure the CORs middleware
 app.use(cors());
@@ -78,13 +79,16 @@ const newsRoute = require("./routes/news");
 app.use("/news", newsRoute);
 
 // This middleware informs the express application to serve our compiled React files
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+if (
+  process.env.NODE_ENV === "production" ||
+  process.env.NODE_ENV === "staging"
+) {
+  app.use(express.static(path.join(__dirname, "client/build")));
 
-  app.get('*', function (req, res) {
-      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
-};
+}
 
 // connection with Mongo DB
 mongoose.connect(
@@ -94,7 +98,6 @@ mongoose.connect(
     console.log("conected to DB!");
   }
 );
-
 
 // Configure our server to listen on the port defiend by our port variable
 app.listen(port, () => console.log(`BACK_END_SERVICE_PORT: ${port}`));
