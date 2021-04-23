@@ -16,4 +16,4 @@
 <h3>Step 1:</h3>
 <p> 1. Clone the repository in your local machine<p></br>
 <p> 2. Open the project in VS Code or your favorite ✨ code editor</p></br>
-<p> 3. Run the command `docker-compose -f docker-compose.yml up` </p>
+<p> 3. Run the command  </p> `docker-compose -f docker-compose.yml up`
