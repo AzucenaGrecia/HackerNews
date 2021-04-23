@@ -25,5 +25,5 @@
 <p></p><code>http://localhost:3000/</code></br>
 <p></p><code>http://localhost:5000/news</code></br>
 
-<p> 5. 👍 the server and client are running! </p>
+<p> 5. perfect the server and client are running with Docker!😊</p>
 
