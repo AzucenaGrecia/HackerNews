@@ -2,7 +2,7 @@
 
 <h3>System requirements if you will use Docker<h3>
 <ul>
-<li>install docker Engine (click [here](https://docs.docker.com/engine/install/) to see the docker documentation)</li>
+<li><p>install docker Engine (click [here](https://docs.docker.com/engine/install/) to see the docker documentation)</p></li>
 <li>install docker compose(click [here](https://docs.docker.com/compose/install/) to see the docker documentation)</li>
 </ul>
 
