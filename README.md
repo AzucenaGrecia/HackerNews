@@ -32,15 +32,15 @@
 <p> 1. Clone the repository in your local machine<p></br>
 <p> 2. Open the project in VS Code or your favorite ✨ code editor</p></br>
 <p> 3. Open two terminals. One of them should enter into the folder 📁 <code>cd /client</code> </p> </br>
-<p> 4. Run the nex command, in both terminals:</p>
+<p> 4. Run the next command, in both terminals:</p>
 <p></p><code>npm install</code></br>
 
-<p> 5. Close the terminal where is into client folder, and Run the command:</p> </br>
+<p> 5. Close the terminal which is into "client" folder, and Run the command:</p> </br>
 <p></p><code>npm run dev</code></br>
 
 <p> 4. Open a browser and type the next urls 🐱‍💻:</p></br>
 <p></p><code>http://localhost:3000/</code></br>
 <p></p><code>http://localhost:5000/news</code></br>
 
-<p> 5. Perfect! the server and client are running in ypur locla machine! 😊</p>
+<p> 5. Perfect! the server and client are running in ypur local machine! 😊</p>
 
