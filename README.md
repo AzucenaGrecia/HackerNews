@@ -1,6 +1,6 @@
 <h2>Reign Challange Full-Stack</h2>
 
-<h3>System requirements if you will use **Docker**<h3>
+<h3>System requirements if you will use *Docker*<h3>
 <ul>
 <li>1. Install docker Engine (click [here](https://docs.docker.com/engine/install/))</li>
 <li>2. Install docker compose(click [here](https://docs.docker.com/compose/install/)) </li>
