@@ -42,5 +42,5 @@
 <p></p><code>http://localhost:3000/</code></br>
 <p></p><code>http://localhost:5000/news</code></br>
 
-<p> 5. Perfect! the server and client are running in ypur local machine! 😊</p>
+<p> 5. Perfect! the server and client are running in your local machine! 😊</p>
 
