@@ -35,7 +35,7 @@
 <p> 4. Run the next command, in both terminals:</p>
 <p></p><code>npm install</code></br>
 
-<p> 5. Close the terminal which is into "client" folder, and Run the command:</p> </br>
+<p> 5. Close the terminal which is into "client" folder, and Run the command:</p> 
 <p></p><code>npm run dev</code></br>
 
 <p> 4. Open a browser and type the next urls 🐱‍💻:</p></br>
