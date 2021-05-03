@@ -42,9 +42,5 @@
 <p></p><code>http://localhost:3000/</code></br>
 <p></p><code>http://localhost:5000/news</code></br>
 
-<<<<<<< HEAD
-<p> 5. Perfect! the server and client are running in your local machine! 😊</p>
-=======
 <p> 5. Perfect! the server and client are running in your local machine! 😊</p>
 
->>>>>>> 992817430fc6820582d6fa872735da668a44a5aa
