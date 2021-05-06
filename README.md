@@ -44,3 +44,4 @@
 
 <p> 5. Perfect! the server and client are running in your local machine! 😊</p>
 
+// falta agregar el stack de tecnologia
