@@ -3,8 +3,8 @@
 <h2>System requirements</h2>
 <h3>If you will use Docker<h3>
 <ul>
-<li>1. Install docker Engine (click [here](https://docs.docker.com/engine/install/))</li>
-<li>2. Install docker compose(click [here](https://docs.docker.com/compose/install/)) </li>
+<li>1. Install docker Engine (https://docs.docker.com/engine/install/)</li>
+<li>2. Install docker compose(https://docs.docker.com/compose/install/)</li>
 </ul>
 
 <h3>If you will use your own OS<h3>
