@@ -18,7 +18,7 @@
 <p> 3. Run the command:</p>
 <p></p><code>docker-compose up -d</code>
 
-<p> 3. Run the command:</p> </br>
+<p> 3. Run the command:</p>
 <p></p><code>docker-compose -f docker-compose.yml up</code>
 
 <p> 4. Open a browser and type the next urls 🐱‍💻:</p>
