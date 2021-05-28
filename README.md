@@ -9,7 +9,7 @@
 
 <h3>If you will use your own OS<h3>
 <ul>
-<li>1. Install nodejs version v.12.20 (click [here](https://nodejs.org/en/download/))</li>
+<li>1. Install nodejs version v.12.20 (https://nodejs.org/en/download/)</li>
 </ul>
 
 <h2>Steps for Docker</h2>
